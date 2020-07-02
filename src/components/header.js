@@ -1,42 +1,28 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+  <header>
+    <ThemeToggler>
+      {({ theme, toggleTheme }) => (
+        <label className="theme_toggler">
+          <input
+            type="checkbox"
+            aria-label="theme toggle"
+            onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+            checked={theme === "dark"}
+          />{" "}
+          dark mode
+        </label>
+      )}
+    </ThemeToggler>
+    <h1>JavaScript</h1>
+    <h2>notatnik, żeby nie zapomnieć</h2>
+    <form action="" method="get">
+      <input type="text" name="txt" id="txt" aria-label="txt" />
+      <input type="submit" id="search" aria-label="Search" value="Szukaj" />
+    </form>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

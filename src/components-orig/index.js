@@ -2,8 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { PrismCode } from "../components/prism"
-// import SSMenu from "../components/ssmenu2"
-import Scrollspy from "react-scrollspy"
+import SSMenu from "../components/ssmenu2"
 
 const code1 = `
 const foo = 'foo';
@@ -22,21 +21,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     {/* <SSMenu hrefs={hrefs} titles={titles} /> */}
-    <Scrollspy
-      items={["section-1", "section-2", "section-3"]}
-      currentClassName="is-current"
-      className="ss-menu"
-    >
-      <li>
-        <a href="#section-1">section 1</a>
-      </li>
-      <li>
-        <a href="#section-2">section 2</a>
-      </li>
-      <li>
-        <a href="#section-3">section 3</a>
-      </li>
-    </Scrollspy>
+    <SSMenu />
 
     <div className="ss-content">
       <section id="section-1">
